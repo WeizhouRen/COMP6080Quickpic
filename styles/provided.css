@@ -1,0 +1,107 @@
+/* base styles, feel free to edit */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.banner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    min-height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, .0975);
+}
+
+footer {
+    border-top: 1px solid rgba(0, 0, 0, .0975);
+    padding: 10px;
+    background-color: white;
+    min-height: 60px;
+    text-align: right;
+}
+
+.banner>*,
+footer>* {
+    margin: 10px 25px;
+}
+
+.nav {
+    list-style-type: none;
+}
+
+
+/* .nav-item {
+    display: inline;
+    list-style-type: none;
+    margin: 0 1em;
+} */
+
+
+/* Add your styles here */
+
+main {
+    position: relative;
+    margin: 2em auto;
+}
+
+form {
+    padding: 2em 0;
+}
+
+#signup-form {
+    display: none;
+}
+
+.feed-card {
+    width: 400px;
+    margin: 2em auto;
+}
+
+#feed-container,
+#profile-container,
+#follow-btn,
+#unfollow-btn,
+#new-post-container {
+    display: none;
+}
+
+#img-preview {
+    width: 50%;
+}
+
+#following-title {
+    margin: 1em 0;
+}
+
+
+/* Center a popup modal */
+
+#err-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+
+#update-profile-form {
+    display: none;
+    width: 500px;
+    border-radius: 5px;
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}

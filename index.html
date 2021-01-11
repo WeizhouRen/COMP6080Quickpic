@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quickpic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.5.3-dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+
+    <script type="module" src="src/helpers.js"></script>
+    <script type="module" src="src/api.js"></script>
+    <script type="module" src="src/post.js"></script>
+    <script type="module" src="src/profile.js"></script>
+    <script type="module" src="src/main.js"></script>
+</head>
+
+<body>
+    <!-- This is an example app structure, you can modify this as much as you choose -->
+    <nav class="banner navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="navbar-brand">Quickpic</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li id="feed-btn" class="nav-item">
+                    <a class="nav-link" href="#">Home Page</a>
+                </li>
+                <li id="profile-btn" class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li id="new-post-btn" class="nav-item">
+                    <a class="nav-link" href="#">New Post</a>
+                </li>
+                <li id="logout-btn" class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <main role="main">
+        <!-- app goes here -->
+        <!-- ********************* Login ********************* -->
+        <form id="login-form" name="login" class="container">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label>Username</label>
+                <input id="login-username" type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input id="login-password" type="password" class="form-control" name="password">
+            </div>
+            <button id="sign-up-btn" type="button" class="btn btn-primary">Signup</button>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <!-- ********************* Singup ********************* -->
+        <form id="signup-form" name="signup" class="container">
+            <h2>Signup</h2>
+            <div class="form-group">
+                <label>Username</label>
+                <input id="signup-username" type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input id="signup-password" type="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <input id="signup-confirm-password" type="password" class="form-control" name="confirm-password">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input id="signup-email" type="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                <input id="signup-name" type="name" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <a href="">Have account? Click to login!</a>
+            </div>
+            <!-- <button id="login-btn" type="button" class="btn btn-primary">Login</button> -->
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+        <!-- ********************* Profile ********************* -->
+        <div id="profile-container" class="jumbotron container">
+            <h1>Profile</h1>
+            <h2 id="profile-username" class="display-8">Username</h2>
+            <p id="profile-name" class="lead">Name</p>
+            <p id="profile-email" class="lead">Email</p>
+            <button id="follow-btn" class="btn btn-info">Follow</button>
+            <button id="unfollow-btn" class="btn btn-info">Unfollow</button>
+            <button id="update-profile-btn" class="btn btn-primary">UPDATE</button>
+            <hr class="my-4">
+            <div class="container">
+                <button id="follower" class="btn btn-light">Followers</button>
+                <button id="following" class="btn btn-light">Following</button>
+                <div id="following-list" class="list-unstyled">
+                    <h3>Following:</h3>
+                </div>
+                <!-- ********************* Posts ********************* -->
+                <div id="own-post-container" class="container">
+
+                </div>
+            </div>
+
+            <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+            <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        </div>
+
+        <form action="" name="update" id="update-profile-form" class="container-sm bg-light">
+            <h1>Update My Info</h1>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="update-name" type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="update-email" type="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="update-password" type="password" class="form-control" name="password">
+            </div>
+            <div class="form-group">
+                <button type="button" id="update-cancel-btn" class="btn btn-secondary">Cancel</button>
+                <button type="submit" id="update-confirm-btn" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        <!-- ********************* New Post ********************* -->
+        <form id="new-post-container" name="post" class="container">
+            <h1>Make a New Post</h1>
+            <div class="form-group">
+                <label for="description">Content</label>
+                <textarea type="text" class="form-control" id="new-post-desc" required></textarea>
+            </div>
+            <div class="form-group">
+                <input id="post-img-btn" class="btn btn-primary" value="Choose Image">
+                <input type="file" id="post-img-input" accept="image/png" required hidden />
+                <button type="button" id="post-submit" class="btn btn-info">Submit</button>
+            </div>
+            <div class="form-group">
+
+                <img src="" alt="" id="img-preview">
+            </div>
+        </form>
+        <!-- ********************* Feed ********************* -->
+        <div id="feed-container" class="container">
+
+        </div>
+        <!-- ********************* Modal********************* -->
+        <!-- <div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+        <div id="err-modal" class="modal-dialog-centered" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title-text"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span id="cross-btn" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body-msg"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="close-modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+    <footer>
+        <p>&copy; Quickpic</p>
+    </footer>
+    <!-- <script type="module" src="src/main.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
